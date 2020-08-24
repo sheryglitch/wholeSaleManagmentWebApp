@@ -1,0 +1,16 @@
+<%- include('./partials/header'); -%>
+<div style="margin-top:20vh;" class="container">
+	<div class="row">
+		<div class="col-9 text-center my-auto card p-5 mx-auto text-white bg-dark">
+			<h2 class="text-center mb-4 text-info">Edit <%= shop.name%></h2>  
+ <form action="/shops/<%=shop._id %>?_method=PUT" method="POST">  
+      <div class="form-group"> <input type="text" name="shop[name]" placeholder="Shop Name" class="form-control input-lg" value = "<%=shop.name%>"> </div>  
+      <div class="form-group"> <input type="text" name="shop[ownerName]" placeholder="Owner Name" class="form-control h-25" value = "<%=shop.ownerName%>"> </div>  
+	 <div class="form-group"> <input type="tel" name="shop[ownerPhone]" placeholder="Owner Phone" class="form-control input-lg" value = "<%=shop.ownerPhone%>"> </div>  
+	 	 <div class="form-group" value = "<%=shop.name%>"> <input type="text" name="shop[address]" placeholder="Address" class="form-control input-lg"  value = "<%=shop.address%>"> </div>  
+       <button type="submit" class="btn btn-info form-control">UPDATE NOW</button> 
+			</form>  
+			</div>
+		</div>
+	</div>
+<%- include('./partials/footer'); -%>

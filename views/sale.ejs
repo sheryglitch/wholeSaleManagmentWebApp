@@ -1,0 +1,19 @@
+<%- include('./partials/header'); -%>
+<div style="margin-top:10vh;" class="container">
+	<div class="row">
+		<div class="col-9 text-center my-auto card p-5 mx-auto text-white bg-dark">
+			<h2 class="text-center mb-4 text-info">SELL ITEM TO <%= shop.name %></h2>  
+ <form action="/shops/<%=shop._id %>/sale" method="POST">  
+      <div class="form-group"> <input type="text" name="item[batch]" placeholder="Item Batch" class="form-control input-lg"> </div>  
+      <div class="form-group"> <input type="text" name="item[name]" placeholder="Item Name" class="form-control h-25"> </div>  
+	 <div class="form-group"> <input type="number" name="item[numItem]" placeholder="Number Of Items" class="form-control input-lg" id="address"> </div> 
+	 <div class="form-group"> <input type="number" name="item[salePricePerItem]" placeholder="Price Per Item" class="form-control input-lg" id="address"> </div> 
+	 <div class="form-group"> <input type="date" name="item[saleDate]" placeholder="Date Of Sale" class="form-control h-25"  > </div>
+	 
+       <button type="submit" class="btn btn-info form-control">SELL ITEM</button> 
+			</form>  
+	   <a href="/shops" class="btn btn-info form-control mt-2">CANCEL</a> 
+			</div>
+		</div>
+	</div>
+<%- include('./partials/footer'); -%>

@@ -1,0 +1,40 @@
+<%- include('../partials/header'); -%>
+<div style="margin-top:2px;" class="container-fluid">
+<table class="table table-striped table-dark" style="margin-bottom:2px;">
+  <thead>
+    <tr>
+	  <th scope="col">Item Batch</th>
+      <th scope="col">Item Name</th>
+      <th scope="col"># Cotton</th>
+	  <th scope="col">Price / Cotton</th>
+	  <th scope="col">Price / Item</th>
+		<th scope="col">Items / Ctn</th>
+	  <th scope="col">Purchase Date</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% 
+	  var i = 1;
+	  var total = 0;
+	  items.forEach(function(item){ 
+		  total += item.priceCtn * item.numCtn;
+	%>
+    <tr>
+      <th scope="row"><%=item.batch%></th>
+      <td><%=item.name%></td>
+	  <td><%=item.numCtn%></td>
+	  <td>Rs. <%=item.priceCtn%></td>
+      <td>Rs. <%=item.priceItem%></td>
+	  <td><%=item.itemPerCtn%></td>
+      <td><%=item.perDate.toDateString()%></td>
+    </tr>
+	<%i++;  }); %>
+  </tbody>
+</table>
+	<table class="table table-striped table-dark">
+		<tr>
+      <th scope="row" class="text-success " style="font-size:20px;">TOTAL PURCHASE : RS. <%=total%></th>
+    </tr>
+		</table>
+</div>
+<%- include('../partials/footer'); -%>

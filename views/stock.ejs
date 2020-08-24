@@ -1,0 +1,30 @@
+<%- include('./partials/header'); -%>
+<div style="margin-top:2px;" class="container-fluid">
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+	  <th scope="col">Batch Number</th>
+      <th scope="col">Item Name</th>
+	  <th scope="col">Total Items Purchased</th>
+		<th scope="col">Total Items Sold</th>
+      <th scope="col">Left In Stock</th>
+		<th scope="col"> </th>
+    </tr>
+  </thead>
+  <tbody>
+	<% 
+	  items.forEach(function(item){ 
+	%>
+    <tr>
+      <th scope="row"><%=item.batch%></th>
+      <td><%=item.name%></td>
+      <td><%=item.purchased%></td>
+	  <td><%=item.sold%></td>
+      <td><%=item.left%></td>
+	  <td><a href ="/shops" class="btn btn-outline-light my-2 my-sm-0">Sale</a></td>
+    </tr>
+	<% }); %>
+  </tbody>
+</table>
+</div>
+<%- include('./partials/footer'); -%>

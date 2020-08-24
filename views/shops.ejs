@@ -1,0 +1,42 @@
+<%- include('./partials/header'); -%>
+<div style="margin-top:2px;" class="container-fluid">
+		<a href="/shops/new" type="button" class="btn btn-dark form-control">Add New Shop</a>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+	  <th scope="col">#</th>
+      <th scope="col">Shop Name</th>
+      <th scope="col">Owner Name</th>
+      <th scope="col">Owner Phone</th>
+		<th scope="col">Address</th>
+      <th scope="col">Details</th>
+	  <th scope="col">Edit</th>
+	  <th scope="col">Delete</th>
+	  <th scope="col">Purchase</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% 
+	  var i = 1;
+	  shops.forEach(function(shop){ 
+	%>
+    <tr>
+      <th scope="row"><%=i%></th>
+      <td><%=shop.name%></td>
+      <td><%=shop.ownerName%></td>
+	  <td><%=shop.ownerPhone%></td>
+      <td><%=shop.address%></td>
+	  <td><a href ="shops/<%=shop._id%>/sale/details" class="btn btn-outline-info my-2 my-sm-0">Details</a></td>
+	  <td><a href ="shops/<%=shop._id%>/edit" class="btn btn-outline-warning my-2 my-sm-0">Edit</a></td>
+	  <td>
+	    <form id="delete-form" action="/shops/<%= shop._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-outline-danger my-2 my-sm-0">Delete</button>
+        </form>
+	  </td>
+	  <td><a href ="shops/<%=shop._id%>/sale" class="btn btn-outline-light my-2 my-sm-0">Sale</a></td>
+    </tr>
+	<%i++;  }); %>
+  </tbody>
+</table>
+</div>
+<%- include('./partials/footer'); -%>

@@ -1,0 +1,38 @@
+<%- include('../partials/header'); -%>
+<div style="margin-top:2px;" class="container-fluid">
+<table class="table table-striped table-dark" style="margin-bottom:2px;">
+  <thead>
+    <tr>
+	  <th scope="col">Item Batch</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Number Of Items</th>
+	  <th scope="col">Price / Item</th>
+	  <th scope="col">Price Total</th>
+	  <th scope="col">Sale Date</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% 
+	  var i = 1;
+	  var total = 0;
+	  items.forEach(function(item){ 
+		  total += Number(item.salePriceTotal);
+	%>
+    <tr>
+      <th scope="row"><%=item.batch%></th>
+      <td><%=item.name%></td>
+	  <td><%=item.numItem%></td>
+	  <td>Rs. <%=item.salePricePerItem%></td>
+      <td>Rs. <%=item.salePriceTotal%></td>
+	  <td><%=item.saleDate.toDateString()%></td>
+    </tr>
+	<%i++;  }); %>
+  </tbody>
+</table>
+	<table class="table table-striped table-dark">
+		<tr>
+      <th scope="row" class="text-success " style="font-size:20px;">TOTAL SALE : RS. <%=total%></th>
+    </tr>
+		</table>
+</div>
+<%- include('../partials/footer'); -%>

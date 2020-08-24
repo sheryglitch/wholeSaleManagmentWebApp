@@ -1,0 +1,15 @@
+<%- include('../partials/header'); -%>
+<div style="margin-top:20vh;" class="container">
+	<div class="row">
+		<div class="col-9 text-center my-auto card p-5 mx-auto text-white bg-dark">
+			<h2 class="text-center mb-4 text-info">UPDATE <%= bank.title %></h2>  
+ <form action="/banks/<%=bank._id %>?_method=PUT" method="POST">  
+      <div class="form-group"> <input type="text" name="bank[name]" placeholder="Bank Name" class="form-control input-lg" id="cname" value="<%= bank.name %>"> </div>  
+      <div class="form-group"> <input type="text" name="bank[account]" placeholder="Bank Account Number" class="form-control h-25" id="pwd" value="<%= bank.account %>"> </div>  
+	 <div class="form-group"> <input type="text" name="bank[title]" placeholder="Account Title" class="form-control input-lg" id="email" value="<%= bank.title %>"> </div>  
+       <button type="submit" class="btn btn-info form-control">UPDATE NOW</button> 
+			</form>  
+			</div>
+		</div>
+	</div>
+<%- include('../partials/footer'); -%>
